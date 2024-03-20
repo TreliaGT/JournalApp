@@ -13,16 +13,16 @@ class TasksTab:
         tasks_frame = tk.Frame(self.notebook)
         self.notebook.add(tasks_frame, text="Tasks")
 
-        self.task_entry = tk.Entry(tasks_frame)
+        self.task_entry = tk.Entry(tasks_frame, bd=0, bg="white", fg="black", relief=tk.FLAT)
         self.task_entry.pack(fill="x", padx=5, pady=5)
 
         button_frame = tk.Frame(tasks_frame)  # Frame to contain the buttons
         button_frame.pack(fill="x", padx=5, pady=5)
 
-        add_button = tk.Button(button_frame, text="Add Task", command=self.add_task)
+        add_button = tk.Button(button_frame, text="Add Task", command=self.add_task , bd=0, bg="#038387", fg="white", padx=10, pady=5)
         add_button.pack(side="left")
 
-        remove_button = tk.Button(button_frame, text="Remove Task", command=self.remove_task)
+        remove_button = tk.Button(button_frame, text="Remove Task", command=self.remove_task , bd=0, bg="#038387", fg="white", padx=10, pady=5)
         remove_button.pack(side="left", padx=5)
 
         self.task_listbox = tk.Listbox(tasks_frame)

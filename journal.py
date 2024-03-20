@@ -7,7 +7,7 @@ import json
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from collections import defaultdict
- 
+
 
 class Journal:
     year_emotion = {}
@@ -44,9 +44,10 @@ class Journal:
         emotion_label = tk.Label(emotions_frame, text="Select Emotion:")
         emotion_label.pack(side=tk.LEFT)
         emotion_dropdown = tk.OptionMenu(emotions_frame, self.emotion_var, *emotions)
+        emotion_dropdown.config(bg="white", fg="black",  relief=tk.FLAT)
         emotion_dropdown.pack(side=tk.LEFT)
 
-        create_button = tk.Button(create_frame, text="Create Entry", command=self.save_entry)
+        create_button = tk.Button(create_frame, text="Create Entry", command=self.save_entry, bd=0, bg="#038387", fg="white", padx=10, pady=5)
         create_button.pack()
 
     # Saves the entry to json file
@@ -124,6 +125,7 @@ class Journal:
                     #For the calendar Tab
                     self.cal.calevent_create(date, entry["entry"], tags=(entry["emotion"],))
                     self.cal.tag_config(entry["emotion"], background=self.get_emotion_color(entry["emotion"]))
+
         except FileNotFoundError:
             messagebox.showwarning("File Not Found", "No journal entries found.")
 
