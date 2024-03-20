@@ -7,8 +7,9 @@ import json
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from collections import defaultdict
+ 
 
-class JournalApp:
+class Journal:
     year_emotion = {}
     month_emotion = {}
     
@@ -24,6 +25,7 @@ class JournalApp:
         self.create_tab()
         self.calendar_tab()
         self.graph_tab()
+     
 
     # Create entry Tab
     def create_tab(self):
@@ -213,11 +215,3 @@ class JournalApp:
         return date_obj.year == current_date.year
 
 
-# Main Function
-def main():
-    root = tk.Tk()
-    app = JournalApp(root)
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
