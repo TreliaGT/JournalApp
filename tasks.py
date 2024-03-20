@@ -11,8 +11,11 @@ class TasksTab:
 
     def create_tab(self):
         tasks_frame = tk.Frame(self.notebook)
-        self.notebook.add(tasks_frame, text="Tasks")
 
+        self.notebook.add(tasks_frame, text="Tasks")
+        label_text = "Enter New Task:"
+        label = tk.Label(tasks_frame, text=label_text)
+        label.pack(fill="x", padx=5, pady=5)
         self.task_entry = tk.Entry(tasks_frame, bd=0, bg="white", fg="black", relief=tk.FLAT)
         self.task_entry.pack(fill="x", padx=5, pady=5)
 
